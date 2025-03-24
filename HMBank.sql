@@ -38,4 +38,35 @@ insert into transactions (transaction_id, account_id, transaction_type, amount, 
 (1009, 109, 'Transfer', 2200.00, '2025-03-24'),
 (1010, 110, 'Deposit', 1300.75, '2025-03-24');
 select * from transactions;
+--1. Write a SQL query to retrieve the name, account type and email of all customers.  
+select concat(first_name,' ',last_name)as name,email ,(select account_type from accounts where accounts.customer_id=customers.customer_id) as account_type from customers;
 
+--2. Write a SQL query to list all transaction corresponding customer.
+select transaction_type,amount,transaction_date,(select first_name from customers where customer_id=(select customer_id from accounts where transactions.account_id=accounts.account_id ) )as customer_name from transactions;
+
+--3. Write a SQL query to increase the balance of a specific account by a certain amount.
+update accounts set balance=balance+10000 where account_id=101;
+
+--4. Write a SQL query to Combine first and last names of customers as a full_name.
+select concat(first_name,' ',last_name) as full_name from customers;
+--5. Write a SQL query to remove accounts with a balance of zero where the account type is savings.
+delete from accounts where balance=0 and account_type='savings';
+insert into accounts values(112,9,'savings',0);
+insert into accounts values(113,8,'savings',0);
+select * from accounts;
+--6. Write a SQL query to Find customers living in a specific city.
+select * from customers where address like('%pondy%');
+--7. Write a SQL query to Get the account balance for a specific account.
+select balance from accounts where account_id=109;
+--8. Write a SQL query to List all current accounts with a balance greater than $1,000.
+select * from accounts where balance>1000 and account_type='current';
+--9. Write a SQL query to Retrieve all transactions for a specific account.
+insert into transactions values(1011,106,'Transfer',800.67,'2025-12-09');
+select * from transactions where account_id=106;
+--10. Write a SQL query to Calculate the interest accrued on savings accounts based on a given interest rate.
+select account_id,account_type,(balance*4*3)/100 as interest from accounts where account_type='savings';
+--11. Write a SQL query to Identify accounts where the balance is less than a specified overdraft limit.
+select * from accounts where balance<1000;
+--12. Write a SQL query to Find customers not living in a specific city. 
+select * from customers where address not like('%chennai%');
+insert into customers values(11,'julia','gomez','2003-09-19',
