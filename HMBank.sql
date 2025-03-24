@@ -69,4 +69,4 @@ select account_id,account_type,(balance*4*3)/100 as interest from accounts where
 select * from accounts where balance<1000;
 --12. Write a SQL query to Find customers not living in a specific city. 
 select * from customers where address not like('%chennai%');
-insert into customers values(11,'julia','gomez','2003-09-19',
+insert into customers values(11,'julia','gomez','2003-09-19','julia@gmail.com','8976543210','56 tnagar chennai');
