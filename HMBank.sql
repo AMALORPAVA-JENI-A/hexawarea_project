@@ -37,7 +37,7 @@ insert into transactions (transaction_id, account_id, transaction_type, amount, 
 (1008, 108, 'Withdrawal', 750.60, '2025-03-23'),
 (1009, 109, 'Transfer', 2200.00, '2025-03-24'),
 (1010, 110, 'Deposit', 1300.75, '2025-03-24');
--- Insert Extra Customers
+
 INSERT INTO customers (customer_id, first_name, last_name, DOB, email, phone_number, address) VALUES
 (11, 'Sophia', 'Williams', '1995-04-12', 'sophia@gmail.com', '9911223344', '23 Main Road, Pondy'),
 (12, 'Liam', 'Davis', '1987-09-25', 'liam@gmail.com', '9922334455', '45 Beach Street, Pondy'),
@@ -50,7 +50,7 @@ INSERT INTO customers (customer_id, first_name, last_name, DOB, email, phone_num
 (19, 'Mia', 'King', '1996-05-02', 'mia@gmail.com', '9999001122', '77 Garden Lane, Pondy'),
 (20, 'Lucas', 'Scott', '1991-01-28', 'lucas@gmail.com', '9900112233', '33 Park Avenue, Pondy');
 
--- Insert Extra Accounts with Different Account Types and Some Zero Balances
+
 INSERT INTO accounts (account_id, customer_id, account_type, balance) VALUES
 (111, 11, 'Savings', 0.00),
 (112, 11, 'Current', 15000.75),
@@ -71,9 +71,9 @@ INSERT INTO accounts (account_id, customer_id, account_type, balance) VALUES
 (127, 18, 'Savings', 7900.80),
 (128, 19, 'Zero Balance', 0.00),
 (129, 20, 'Current', 6000.30),
-(130, 11, 'Savings', 0.00);  -- Same customer with another account
+(130, 11, 'Savings', 0.00); 
 
--- Insert Extra Transactions with a Mix of Deposit, Withdrawal, and Transfers
+
 INSERT INTO transactions (transaction_id, account_id, transaction_type, amount, transaction_date) VALUES
 (1011, 111, 'Deposit', 5000.00, '2025-03-25'),
 (1012, 112, 'Withdrawal', 1000.00, '2025-03-26'),
@@ -94,7 +94,7 @@ INSERT INTO transactions (transaction_id, account_id, transaction_type, amount, 
 (1027, 127, 'Transfer', 1800.80, '2025-04-10'),
 (1028, 128, 'Deposit', 900.30, '2025-04-11'),
 (1029, 129, 'Withdrawal', 1500.45, '2025-04-12'),
-(1030, 130, 'Deposit', 0.00, '2025-04-13');  -- Zero amount transaction
+(1030, 130, 'Deposit', 0.00, '2025-04-13'); 
 
 -- View All Customers
 SELECT * FROM customers;
@@ -191,7 +191,11 @@ select sum(case when transaction_type='deposit' then amount else 0 end)-sum(case
 as difference from transactions;
 
 --10. Write a SQL query to Calculate the average daily balance for each account over a specified period.
---select avg(balance) average_balance,account_id from accounts group by account_id;
+select account_id,AVG(amount) as average_daily_balance
+from Transactions
+where transaction_date BETWEEN '2025-03-23' AND '2025-03-25' 
+group by account_id;
+select * from Transactions;
 
 --11. Calculate the total balance for each account type.
 select sum(balance) total_balance,account_type  from accounts group by account_type;
@@ -201,8 +205,13 @@ select count(transaction_id) no_of_transactions,account_id from transactions
 group by account_id order by no_of_transactions desc;
 
 --13. List customers with high aggregate account balances, along with their account types.
---select sum(balance) as aggregate_balance,account_type,account_id from accounts
---group by account_id;
+select c.customer_id,c.first_name, c.last_name,a.account_type,
+sum(a.balance) as total_balance
+from customers c
+join accounts a on c.customer_id = a.customer_id
+group by c.customer_id, c.first_name, c.last_name, a.account_type
+having sum(a.balance) > 10000 
+order by total_balance desc;
 
 --14. Identify and list duplicate transactions based on transaction amount, date, and account.
 select amount,transaction_date,account_id,count(account_id) from transactions group by amount,transaction_date,account_id having count(account_id)>1 ;
@@ -225,10 +234,47 @@ select * from accounts;
 select account_id,amount from transactions where amount>(select avg(amount) from transactions);
 select avg(amount) from transactions;
 
-4. Identify customers who have no recorded transactions.
-5. Calculate the total balance of accounts with no recorded transactions.
-6. Retrieve transactions for accounts with the lowest balance.
-7. Identify customers who have accounts of multiple types.
-8. Calculate the percentage of each account type out of the total number of accounts.
-9. Retrieve all transactions for a customer with a given customer_id.
-10. Calculate the total balance for each account type, including a subquery within the SELECT clause.
+--4. Identify customers who have no recorded transactions.
+select a.account_id,first_name from customers c 
+join accounts a on a.customer_id=c.customer_id
+where not exists
+(select 1 from transactions t where t.account_id=a.account_id);
+insert into customers values(21,'jeniffer','brown','1997-09-18','browm@gmail.com','7865432190','897 nehru street,pondy');
+select* from accounts;
+insert into accounts values(131,21,'current',8900);
+
+--5. Calculate the total balance of accounts with 
+--no recorded transactions.
+select sum(a.balance),a.account_id,first_name from customers c
+join accounts a on a.customer_id=c.customer_id
+where not exists
+(select 1 from transactions t where t.account_id=a.account_id)
+group by c.customer_id,a.account_id,c.first_name;
+
+--6. Retrieve transactions for accounts with the lowest balance.
+select * from transactions t
+join accounts a on a.account_id=t.account_id
+where balance=(select min(balance) from accounts);
+
+--7. Identify customers who have accounts of multiple types.
+select first_name from customers c
+join accounts a on a.customer_id=c.customer_id
+ group by a.customer_id,first_name
+ having count(account_id)>1;
+
+ select * from customers;
+ select * from accounts;
+
+--8. Calculate the percentage of each account type out of the total number of accounts.
+select(count(account_id)*100.0/(select count(account_id) from accounts)),account_type from accounts
+group by account_type;
+
+--9. Retrieve all transactions for a customer with a given customer_id.
+select t.*,c.customer_id from customers c
+join accounts a on a.customer_id=c.customer_id
+join transactions t on t.account_id=a.account_id
+where c.customer_id=1;
+
+--10. Calculate the total balance for each account type, including a subquery within the SELECT clause.
+select sum(balance),account_type from accounts 
+group by account_type;
