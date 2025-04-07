@@ -1,17 +1,17 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OopsAssignment
+namespace assignment
 {
-    internal class Customer
+    class Customer
     {
         int CustomerID;
         string FirstName;
         string LastName;
-        string EmailAdress;
+        string EmailAddress;
         string PhoneNo;
         string Address;
 
@@ -32,8 +32,8 @@ namespace OopsAssignment
         }
         public string emailAdress
         {
-            set{EmailAdress=value;}
-            get { return EmailAdress;}
+            set{EmailAddress=value;}
+            get { return EmailAddress;}
         }
         public string phoneNo
         {
@@ -48,7 +48,18 @@ namespace OopsAssignment
         public Customer()
         {
         }
-        public void Display(int CustomerID,string FirstName,string Lastname,string EmailAddress,string PhoneNo,string Address)
+        public Customer(int CustomerID, string FirstName, string LastName, string EmailAddress, string PhoneNo, string Address)
+        {
+           this.CustomerID=CustomerID;
+           this.FirstName=FirstName;
+           this.LastName = LastName;
+            this.EmailAddress=EmailAddress;
+            this.PhoneNo=PhoneNo;
+            this.Address=Address;
+
+
+        }
+        public void Display()
         {
             Console.WriteLine($"Customer ID:{CustomerID} First Name:{FirstName} Last Name:{LastName} Email Address:{EmailAddress}  Phone Number:{PhoneNo} Address:{Address}");
         }
