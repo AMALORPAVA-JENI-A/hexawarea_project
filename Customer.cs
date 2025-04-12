@@ -1,68 +1,79 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace assignment
+
+namespace HMBank
 {
-    class Customer
+    public class Customer
     {
-        int CustomerID;
-        string FirstName;
-        string LastName;
-        string EmailAddress;
-        string PhoneNo;
-        string Address;
+        
+            public int counter = 100;
 
-        public int customerID
-        {
-            set{CustomerID=value;}
-            get{return CustomerID;}
-        }
-        public string firstName
-        {
-            set{FirstName=value;}
-            get { return FirstName; }
-        }
+
+            public int customerID
+            {
+                set;
+                get;
+            }
+            public string firstName
+            {
+                set;
+                get;
+            }
             public string lastName
-        {
-            set{LastName=value;}
-            get { return LastName; }
-        }
-        public string emailAdress
-        {
-            set{EmailAddress=value;}
-            get { return EmailAddress;}
-        }
-        public string phoneNo
-        {
-            set { PhoneNo=value;}
-            get { return PhoneNo; }
-        }
-        public string address
-        {
-            set { Address=value;}
-            get { return Address; }
-        }
-        public Customer()
-        {
-        }
-        public Customer(int CustomerID, string FirstName, string LastName, string EmailAddress, string PhoneNo, string Address)
-        {
-           this.CustomerID=CustomerID;
-           this.FirstName=FirstName;
-           this.LastName = LastName;
-            this.EmailAddress=EmailAddress;
-            this.PhoneNo=PhoneNo;
-            this.Address=Address;
+            {
+                set;
+                get;
+            }
+            public string emailAdress
+            {
+                set;
+                get;
+            }
+            public string phoneNo
+            {
+                set;
+                get;
+            }
+            public string address
+            {
+                set;
+                get;
+            }
+            public Customer()
+            {
+            }
+            public Customer(string FirstName, string LastName, string EmailAddress, string PhoneNo, string Address)
+            {
+                if (!Regex.IsMatch(EmailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                {
+                    Console.WriteLine("Invalid email");
+                }
+                if (!Regex.IsMatch(PhoneNo, @"^\d{10}$"))
+                {
+                    Console.WriteLine("Invalid Phone number");
+                }
+                customerID = counter++;
+                firstName = FirstName;
+                lastName = LastName;
+                emailAdress = EmailAddress;
+                phoneNo = PhoneNo;
+                address = Address;
+
+
+            }
+            public override string ToString()
+            {
+                return $"Customer ID:{customerID} First Name:{firstName} Last Name:{lastName} Email Address:{emailAdress}  Phone Number:{phoneNo} Address:{address}";
+            }
 
 
         }
-        public void Display()
-        {
-            Console.WriteLine($"Customer ID:{CustomerID} First Name:{FirstName} Last Name:{LastName} Email Address:{EmailAddress}  Phone Number:{PhoneNo} Address:{Address}");
-        }
-
     }
-}
+
+
