@@ -1,0 +1,44 @@
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\HMBank.exe
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\HMBank.deps.json
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\HMBank.runtimeconfig.json
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\HMBank.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\HMBank.pdb
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Downloads\HMBank\HMBank\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.csproj.AssemblyReference.cache
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.GeneratedMSBuildEditorConfig.editorconfig
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.AssemblyInfoInputs.cache
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.AssemblyInfo.cs
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.csproj.CoreCompileInputs.cache
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.csproj.Up2Date
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.dll
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\refint\HMBank.dll
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.pdb
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\HMBank.genruntimeconfig.cache
+D:\Downloads\HMBank\HMBank\obj\Debug\net8.0\ref\HMBank.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\HMBank.exe
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\HMBank.deps.json
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\HMBank.runtimeconfig.json
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\HMBank.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\HMBank.pdb
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\hexaware dotnet\HMBank1\HMBank\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.csproj.AssemblyReference.cache
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.GeneratedMSBuildEditorConfig.editorconfig
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.AssemblyInfoInputs.cache
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.AssemblyInfo.cs
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.csproj.CoreCompileInputs.cache
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.csproj.Up2Date
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.dll
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\refint\HMBank.dll
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.pdb
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\HMBank.genruntimeconfig.cache
+D:\hexaware dotnet\HMBank1\HMBank\obj\Debug\net8.0\ref\HMBank.dll
