@@ -1,0 +1,15 @@
+D:\hexaware dotnet\assignment\bin\Debug\net8.0\assignment.exe
+D:\hexaware dotnet\assignment\bin\Debug\net8.0\assignment.deps.json
+D:\hexaware dotnet\assignment\bin\Debug\net8.0\assignment.runtimeconfig.json
+D:\hexaware dotnet\assignment\bin\Debug\net8.0\assignment.dll
+D:\hexaware dotnet\assignment\bin\Debug\net8.0\assignment.pdb
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.GeneratedMSBuildEditorConfig.editorconfig
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.AssemblyInfoInputs.cache
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.AssemblyInfo.cs
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.csproj.CoreCompileInputs.cache
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.dll
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\refint\assignment.dll
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.pdb
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.genruntimeconfig.cache
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\ref\assignment.dll
+D:\hexaware dotnet\assignment\obj\Debug\net8.0\assignment.sourcelink.json
