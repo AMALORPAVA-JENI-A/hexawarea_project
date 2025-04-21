@@ -1,0 +1,36 @@
+create database Loan;
+use Loan;
+drop table Loan;
+create table customer(customerID int constraint pk_customer_ID primary key,Name varchar(20),EmailAddress varchar(40) constraint uq_email unique,Phone_Number varchar(10),Address varchar(50),creditScore decimal);
+create table Loan(loanID int constraint pk_loanID primary key,customerID int constraint fk_customer_ID foreign key references customer(customerID) on delete cascade,principleAmount decimal,interestRate decimal,loanTerm decimal,loanType varchar(20),loanStatus varchar(20),PropertyAddress varchar(30),propertyValue decimal,carModel varchar(20),carValue decimal);
+
+select * from loan;
+select * from customer;
+INSERT INTO customer (customerID, Name, EmailAddress, Phone_Number, Address, creditScore)
+VALUES 
+(1, 'Aarav Mehta', 'aarav.mehta@example.com', '9876543210', 'Mumbai, MH', 750),
+(2, 'Priya Sharma', 'priya.sharma@example.com', '9988776655', 'Delhi, DL', 720),
+(3, 'Ravi Kumar', 'ravi.kumar@example.com', '9123456789', 'Chennai, TN', 680),
+(4, 'Anjali Patel', 'anjali.patel@example.com', '9090909090', 'Ahmedabad, GJ', 700),
+(5, 'Siddharth Rao', 'siddharth.rao@example.com', '9876512345', 'Bengaluru, KA', 780),
+(6, 'Neha Joshi', 'neha.joshi@example.com', '9012345678', 'Pune, MH', 710),
+(7, 'Manish Tiwari', 'manish.tiwari@example.com', '9834567890', 'Lucknow, UP', 665),
+(8, 'Sneha Kapoor', 'sneha.kapoor@example.com', '9765432109', 'Jaipur, RJ', 740),
+(9, 'Vikram Singh', 'vikram.singh@example.com', '9555567890', 'Patna, BR', 690),
+(10, 'Isha Desai', 'isha.desai@example.com', '9888877665', 'Surat, GJ', 730);
+
+INSERT INTO Loan (loanID, customerID, principleAmount, interestRate, loanTerm, loanType, loanStatus, PropertyAddress, propertyValue, carModel, carValue)
+VALUES
+(101, 1, 2500000, 8.5, 240, 'HomeLoan', 'Approved', 'Andheri, Mumbai', 3000000, NULL, NULL),
+(102, 2, 500000, 9.2, 60, 'CarLoan', 'Pending', NULL, NULL, 'Hyundai i20', 600000),
+(103, 3, 2000000, 7.8, 180, 'HomeLoan', 'Rejected', 'T. Nagar, Chennai', 2400000, NULL, NULL),
+(104, 4, 450000, 10.0, 48, 'CarLoan', 'Approved', NULL, NULL, 'Maruti Swift', 500000),
+(105, 5, 3000000, 8.0, 240, 'HomeLoan', 'Approved', 'Whitefield, Bangalore', 3500000, NULL, NULL),
+(106, 6, 400000, 9.5, 60, 'CarLoan', 'Pending', NULL, NULL, 'Honda Amaze', 450000),
+(107, 7, 1800000, 8.25, 180, 'HomeLoan', 'Pending', 'Hazratganj, Lucknow', 2200000, NULL, NULL),
+(108, 8, 550000, 9.0, 60, 'CarLoan', 'Approved', NULL, NULL, 'Tata Nexon', 600000),
+(109, 9, 2200000, 7.75, 240, 'HomeLoan', 'Approved', 'Kankarbagh, Patna', 2700000, NULL, NULL),
+(110, 10, 620000, 10.5, 60, 'CarLoan', 'Rejected', NULL, NULL, 'Kia Seltos', 700000);
+
+DELETE FROM Loan
+WHERE loanId=0;
